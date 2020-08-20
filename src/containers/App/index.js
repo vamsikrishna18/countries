@@ -21,7 +21,6 @@ export default () => {
     }, [])
 
     useEffect(() => {
-        console.log('exec')
         if (apiCall) {
             getCountriesList((data) => {
                 if (data) {
