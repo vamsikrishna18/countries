@@ -10,6 +10,7 @@ import './styles.scss'
 
 export default () => {
     const [countries, setCountries] = useState([])
+    const [apiCall, setApiCall] = useState(false)
 
     useEffect(() => {
         getCountriesList((data) => {
@@ -18,6 +19,17 @@ export default () => {
             }
         })
     }, [])
+
+    useEffect(() => {
+        console.log('exec')
+        if (apiCall) {
+            getCountriesList((data) => {
+                if (data) {
+                    setCountries(data.countries)
+                }
+            })
+        }
+    }, [apiCall])
 
     return (
         <div className="container-fluid m-4 p-4">
@@ -30,7 +42,7 @@ export default () => {
                 </a>
             </div>
             <div className="pl-5 mt-3">
-                <Select data={countries} />
+                <Select data={countries} setApiCall={setApiCall} />
             </div>
         </div>
     )

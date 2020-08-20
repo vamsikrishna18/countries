@@ -16,7 +16,7 @@ import { addCountryToList } from '../../services/service'
 import './styles.scss'
 import 'react-toastify/dist/ReactToastify.css'
 
-const Select = ({ data }) => {
+const Select = ({ data, setApiCall }) => {
     const [searchValue, setSearchValue] = useState('')
     const [selectedvalue, setSelectedValue] = useState('')
     const [visible, setVisible] = useState(5)
@@ -46,6 +46,8 @@ const Select = ({ data }) => {
         addCountryToList(searchValue, (value) => {
             if (value?.status === 'Success') {
                 toast.success('Added successfully!')
+                setApiCall(true)
+                setApiCall(false)
                 return setSelectedValue(searchValue)
             }
             toast.warning('Error occurred/country already exist!')
@@ -131,6 +133,7 @@ const Select = ({ data }) => {
 
 Select.propTypes = {
     data: PropTypes.instanceOf(Array),
+    setApiCall: PropTypes.func,
 }
 
 export default Select
