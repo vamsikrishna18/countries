@@ -1,0 +1,44 @@
+.selectBox {
+    width: 400px;
+    height: 46px;
+
+    &-select {
+        font-size: 14px;
+        font-family: sans-serif;
+        font-weight: 500;
+
+        & .searchBar {
+            background: url('../../assets/search.svg') no-repeat scroll 8px 9px;
+            border-radius: 10px;
+            padding-left: 32px !important;
+
+            &:focus {
+                outline: none;
+            }
+            &::placeholder {
+                padding-left: 26px;
+            }
+        }
+    }
+
+    &-options {
+        & .option {
+            cursor: pointer;
+
+            &:hover {
+                background-color: lightgray;
+            }
+        }
+    }
+
+    &-more {
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    &-custom {
+        :hover {
+            background-color: none;
+        }
+    }
+}
